@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menula De Silva Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add some basic styling */
+        .card:hover { transform: scale(1.05); transition: transform 0.3s ease; }
+        footer { background-color: #212529; color: white; }
+        .card-text { max-height: 100px; overflow: hidden; text-overflow: ellipsis; }
+        .spinner-border { margin-top: 100px; }
+        .badge { font-size: 1rem; }
+        #notification { display: none; position: fixed; bottom: 20px; right: 20px; background: #17a2b8; color: white; padding: 10px 20px; border-radius: 5px; }
+        .currency-dropdown { position: absolute; top: 10px; right: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header data-bs-theme="dark">
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand">Enhanced Album</a>
+                <div>
+                    <button class="btn btn-light me-3" id="toggle-dark-mode">Toggle Dark Mode</button>
+                    <button class="btn btn-secondary position-relative">
+                        Wishlist
+                        <span id="wishlist-counter" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span>
+                    </button>
+                    <button class="btn btn-secondary position-relative">
+                        Cart
+                        <span id="cart-counter" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span>
+                    </button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Filters</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h6>Filter by Category</h6>
+            <select id="category-filter" class="form-select mb-3">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+                <option value="home">Home</option>
+            </select>
+            <h6>Sort By</h6>
+            <button class="btn btn-outline-secondary w-100 mb-2" id="sort-price">Sort by Price</button>
+            <button class="btn btn-outline-secondary w-100" id="sort-rating">Sort by Rating</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Menula De Silva Store</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <h3 class="mb-4">Featured Products</h3>
+                <div id="featured-row" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+            </div>
+        </div>
+
+        <!-- All Products -->
+        <div class="album py-5 bg-body-tertiary">
+            <div class="container">
+                <h3 class="mb-4">All Products</h3>
+                <div class="spinner-border" id="loading-spinner" role="status"></div>
+                <div id="row" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-body-secondary py-5">
+        <div class="container">
+            <p class="float-end mb-1"><a href="#" id="scroll-to-top">Back to top</a></p>
+            <p class="mb-1">Enhanced Album © Your Company.</p>
+        </div>
+    </footer>
+
+    <!-- Notifications -->
+    <div id="notification">New products added!</div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js">
+       
+    </script>
+</body>
+</html>
